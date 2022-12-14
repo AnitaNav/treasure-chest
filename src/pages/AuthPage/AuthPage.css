@@ -1,0 +1,11 @@
+/* .AuthPage {
+    /* background-image: url("/Users/anitanaveen/code/treasure-chest/public/Background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+} */
+.Title {
+    font-family: 'Macondo', cursive;
+    color: palegreen;
+    justify-content: center;
+    margin-left: 30%;
+}
