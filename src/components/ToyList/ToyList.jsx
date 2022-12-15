@@ -1,15 +1,12 @@
-import ToyListItem from '../ToyListItem/ToyListItem';
 
-export default function ToyList({ toyItems }) {
-  const toys = toyItems.map(toy =>
-    <ToyListItem
-      key={toy._id}
-      ToyItem={toy}
-    />
-  );
+export default function ToyList({ toy, ItemtoCart, add, remove }) {
+
   return (
-    <main>
-      {toys}
-    </main>
+    <>
+      <h3>name: {toy.name} </h3>
+      <img src={toy.image} alt={toy.name} />
+      {add && <button onClick={() => ItemtoCart(toy._id) }>Add to Cart</button>}
+      {remove && <button onClick={() => ItemtoCart(toy._id) }>Remove to Cart</button>}
+    </>
   );
 }
