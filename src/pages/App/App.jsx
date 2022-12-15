@@ -33,7 +33,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/donates/new" element={<CartPage />} />
               <Route path="/donates" element={<DonatePage />} />
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<HomePage toys={ toys }/>} />
             </Routes>
           </>
           :
