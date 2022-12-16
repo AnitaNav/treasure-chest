@@ -1,4 +1,5 @@
 import ToyList from "../../components/ToyList/ToyList";
+import './CartPage.css';
 
 export default function CartPage({cart, setCart, removeItemtoCart}) {
 console.log(cart, "cart page")
@@ -7,7 +8,7 @@ console.log(cart, "cart page")
   ));
   return (
     <main>
-      <h1>Cart Page</h1>
+      <h1>Ⓣⓐⓚⓔ Ⓜⓔ Ⓗⓞⓜⓔ 🚂</h1>
       <div>{displayToys}</div>
     </main>
   );

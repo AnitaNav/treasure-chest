@@ -66,7 +66,7 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: blue;
+  background-color: purple;
   color: var(--text-dark);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
@@ -77,9 +77,9 @@ code {
 
 .form-container {
   padding: 3vmin;
-  background-color: gainsboro;
+  background-image: url('https://thumbs.gfycat.com/FelineTerribleAsiaticlesserfreshwaterclam-max-1mb.gif');;
   border-radius: 1vmin;
-  opacity: 0.8
+  opacity: 0.6
 }
 
 p.error-message {
@@ -95,7 +95,8 @@ form {
 }
 
 label {
-  font-size: 2vmin;
+  color: bisque;
+  font-size: 3vmin;
   display: flex;
   align-items: center;
 }
@@ -103,12 +104,8 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  border: 1vmin;
   border-radius: .5vmin;
-  color: var(--text-dark);
-  background-image: none !important;
-  /* prevent lastpass */
-  outline: none;
 }
 
 input:focus {
@@ -142,10 +139,11 @@ button.btn-xs {
 button:disabled,
 form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: gray;
+  background-image: url('https://codemyui.com/wp-content/uploads/2016/11/pure-css-snow-animation.gif');
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+  color: goldenrod;
 }
