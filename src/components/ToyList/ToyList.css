@@ -1,0 +1,9 @@
+.Toy-container {
+    display: flex;
+    /* grid-template-rows: repeat(3, 5vmin);
+    grid-template-columns: repeat(3, 5vmin); */
+    width: 1%;
+    height: 1%;
+    gap: 10vmin;
+    justify-content: "center";
+}

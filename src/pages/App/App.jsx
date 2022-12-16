@@ -5,14 +5,17 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import CartPage from '../CartPage/CartPage';
 import DonatePage from '../DonatePage/DonatePage';
+import CommentsPage from '../CommentsPage/CommentsPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import * as toysAPI from '../../utilities/toys-api';
+import * as CommentsAPI from '../../utilities/comments-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [toys, setToys] = useState([]);
   const [cart, setCart] = useState([]);
+  const [comments, setComments] = useState([]);
 
   useEffect(function () {
     async function getToys() {
@@ -48,6 +51,11 @@ export default function App() {
     setCart(updatedCart);
   }
 
+  async function handleNewComment(comment) {
+    const newComment = await CommentsAPI.addComment(comment);
+    setComments([...comments,newComment]);
+  }
+
   return (
     <main className="App">
       { user ?
@@ -57,6 +65,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} removeItemtoCart={removeItemtoCart}/>} />
               <Route path="/donates" element={<DonatePage />} />
+              <Route path="/comments" element={<CommentsPage handleNewComment={handleNewComment}/>} />
               <Route path="/" element={<HomePage toys={ toys } setToys={ setToys } addItemtoCart={addItemtoCart}/>} />
             </Routes>
           </>

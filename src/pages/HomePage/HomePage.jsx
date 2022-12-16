@@ -1,4 +1,4 @@
-
+import './HomePage.css';
 import ToyList from '../../components/ToyList/ToyList';
 
 
@@ -10,8 +10,8 @@ export default function HomePage({ toys, addItemtoCart }) {
       ));
 
         return (
-            <ul>
-            {displayToys}
-            </ul>
+                <ul>
+                {displayToys}
+                </ul>
         );
     }
