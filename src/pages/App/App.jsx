@@ -38,14 +38,14 @@ export default function App() {
 
   async function removeItemtoCart(id) {
     console.log( id,'remove item to cart');
-  //   const addToy = toys.filter(function (toy) {
-  //     if (toy._id === id) return toy;
-  //   })
-  //   setCart([...cart, ...addToy]);
-  //   const updatedToys = toys.filter(function (toy) {
-  //     if (toy._id !== id) return toy;
-  //   })
-  //   setToys(updatedToys);
+    const removeCartItem = cart.filter(function (cartItem) {
+      if (cartItem._id === id) return cartItem;
+    })
+    setToys([...toys, ...removeCartItem]);
+    const updatedCart = cart.filter(function (cartItem) {
+      if (cartItem._id !== id) return cartItem;
+    })
+    setCart(updatedCart);
   }
 
   return (
