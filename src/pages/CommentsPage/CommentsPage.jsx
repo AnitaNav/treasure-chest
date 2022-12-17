@@ -19,7 +19,7 @@ export default function CommentsPage({ handleNewComment }) {
 
     return (
       <>
-        <h1>Comments</h1>
+        <h1>Ⓒⓞⓜⓜⓔⓝⓣⓢ</h1>
         <form onSubmit={handleSubmit}>
           <textarea onChange={handleChange}  name="text" value={formData.text} id="" cols="30" rows="10"></textarea>
           <button className="button">Submit</button>

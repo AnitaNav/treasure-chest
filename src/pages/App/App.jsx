@@ -56,6 +56,10 @@ export default function App() {
     setComments([...comments,newComment]);
   }
 
+  async function addDonation() {
+    
+  }
+
   return (
     <main className="App">
       { user ?
@@ -64,7 +68,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} removeItemtoCart={removeItemtoCart}/>} />
-              <Route path="/donates" element={<DonatePage />} />
+              <Route path="/donates" element={<DonatePage addDonation={addDonation}/>} />
               <Route path="/comments" element={<CommentsPage handleNewComment={handleNewComment}/>} />
               <Route path="/" element={<HomePage toys={ toys } setToys={ setToys } addItemtoCart={addItemtoCart}/>} />
             </Routes>
