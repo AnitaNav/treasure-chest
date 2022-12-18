@@ -8,8 +8,8 @@ export default function ToyList({ toy, ItemtoCart, add, remove }) {
         <div className = "Toy-container">
             <img src={toy.image} alt={toy.name} />
           </div>
-        {add && <button onClick={() => ItemtoCart(toy._id)}>Add to Cart</button>}
-        {remove && <button onClick={() => ItemtoCart(toy._id)}>Remove</button>}
+        {add && <button className="button" onClick={() => ItemtoCart(toy._id)}>Cart 🛒</button>}
+        {remove && <button className="button" onClick={() => ItemtoCart(toy._id)}>Remove ❌</button>}
     </>
   );
 }

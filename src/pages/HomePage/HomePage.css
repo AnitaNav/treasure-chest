@@ -1,0 +1,7 @@
+.container-toys {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 10vmin);
+    grid-template-rows: repeat(2, 10vmin);
+    gap: 5vmin;
+}

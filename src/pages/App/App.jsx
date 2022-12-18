@@ -10,12 +10,14 @@ import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import * as toysAPI from '../../utilities/toys-api';
 import * as CommentsAPI from '../../utilities/comments-api';
+import * as donationAPI from '../../utilities/donations-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [toys, setToys] = useState([]);
   const [cart, setCart] = useState([]);
   const [comments, setComments] = useState([]);
+  const [donations, setDonations] = useState([]);
 
   useEffect(function () {
     async function getToys() {
@@ -57,7 +59,8 @@ export default function App() {
   }
 
   async function addDonation() {
-    
+    // const newDonation = await donationAPI.create(donations)
+    // setDonations([...donations, newDonation]);
   }
 
   return (

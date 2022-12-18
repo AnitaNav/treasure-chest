@@ -17,7 +17,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/comments">Comments</Link>
       &nbsp; | &nbsp;
-      <Link to="/cart">Pick Up</Link>
+      <Link to="/cart">Pick Up 🛒</Link>
       &nbsp;&nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
