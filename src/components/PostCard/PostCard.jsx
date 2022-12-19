@@ -1,10 +1,10 @@
 
-export default function postCard({post }) {
+export default function postCard({post, handleDeletePost }) {
     return (
         <>
-            <img src={post.image} alt={post.title} />
             <div>{post.title}</div>
             <p>{post.text}</p>
+            <button onClick={() => handleDeletePost(post._id)}>Delete</button> 
         </>
     );
 

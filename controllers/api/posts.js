@@ -5,6 +5,7 @@ module.exports = {
     create,
     index,
     addComment,
+    deletePost,
 }
 
 async function create(req, res) {
@@ -16,6 +17,11 @@ async function create(req, res) {
 async function index(req, res) {
     const posts = await Post.find({});
     res.json(posts);
+}
+
+async function deletePost(req, res) {
+    const deletedPost = await Post.findByIdAndDelete(req.params.id);
+    res.json(deletedPost);
 }
 
 async function addComment(req, res) {

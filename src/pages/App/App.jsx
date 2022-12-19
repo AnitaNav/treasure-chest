@@ -9,7 +9,7 @@ import PostPage from '../PostsPage/PostPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import * as toysAPI from '../../utilities/toys-api';
-import * as PostsAPI from '../../utilities/posts-api';
+import * as postsAPI from '../../utilities/posts-api';
 import * as donationAPI from '../../utilities/donations-api';
 
 export default function App() {
@@ -24,11 +24,13 @@ export default function App() {
     async function getToys() {
       console.log('getalltoys')
       let allToys = await toysAPI.getAll();
-      console.log(allToys)
+      console.log(allToys,'All toys')
       setToys(allToys)
     }
     getToys();
   }, []);
+
+  
 
   async function addItemtoCart(id) {
     console.log( id,'add item to cart');
@@ -55,9 +57,18 @@ export default function App() {
   }
 
   async function handleNewPost(evt, newPostData) {
-    const newPost = await PostsAPI.addPost(newPostData);
+    evt.preventDefault();
+    const newPost = await postsAPI.addPost(newPostData);
     setPosts([...posts,newPost]);
+    navigate('/posts');
   }
+
+  async function handleDeletePost(id) {
+    await postsAPI.deletePosts(id);
+    const existingPost = posts.filter(post => post._id !== id);
+    setPosts(existingPost);
+  } 
+
 
   async function addDonation(evt, newDonationData) {
     evt.preventDefault();
@@ -75,7 +86,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} removeItemtoCart={removeItemtoCart}/>} />
               <Route path="/donates" element={<DonatePage addDonation={addDonation}/>} />
-              <Route path="/posts" element={<PostPage handleNewPost={handleNewPost}/>} />
+              <Route path="/posts" element={<PostPage handleNewPost={handleNewPost} posts={posts} setPosts={setPosts} handleDeletePost={handleDeletePost}/>} />
               <Route path="/" element={<HomePage toys={ toys } setToys={ setToys } addItemtoCart={addItemtoCart}/>} />
             </Routes>
           </>
