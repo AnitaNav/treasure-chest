@@ -1,6 +1,6 @@
 /* CSS Custom Properties */
 :root {
-  background-image: url("/Users/anitanaveen/code/treasure-chest/public/Background.jpeg");
+  background-image: url("../public/images/Background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
