@@ -2,32 +2,32 @@ import { useState } from 'react';
 import './DonatePage.css';
 
 export default function DonatePage({ addDonation }) {
-  const [donate, setDonate] = useState([{name:'',image:null}]);
+  const [newdonation, setNewDonation] = useState([{name:'',image:''}]);
 
   function handleChange(evt) {
     console.log('evt',evt);
-    setDonate({...donate,[evt.target.name]: evt.target.value});
-    console.log('name',donate.name)
+    setNewDonation({...newdonation,[evt.target.name]: evt.target.value});
+    console.log('name',newdonation.name)
   }
 
-  function submitDonation(evt) {
-    evt.preventDefault();
-    addDonation(donate);
-    setDonate([]);
-  }
+  // function submitDonation(evt) {
+  //   evt.preventDefault();
+  //   addDonation(donate);
+  //   setDonate([]);
+  // }
 
-console.log('donate',donate);
+// console.log('donate',donate);
   return (
     <>
       <h1>ⒹⓄⓃⒶⓉⒺ🧸</h1>
-      <form>
+      <form onSubmit={evt => addDonation(evt, newdonation)}>
         <label>
           Name:
-          <input type="text" name="name" value={donate.name ?? ''} onChange={(evt)=>{handleChange(evt)}}/>
+          <input type="text" name="name" value={newdonation.name} onChange={handleChange}/>
           Image:
-          <input type="file" name="image" value={donate.image} onChange={handleChange}/>
+          <input type="text" name="image" value={newdonation.image} onChange={handleChange}/>
         </label>
-        <button type="submit" onSubmit={submitDonation}>Donate</button>
+        <button type="submit">Donate</button>
       </form>
     </>
   );

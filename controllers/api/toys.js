@@ -2,6 +2,7 @@ const Toy = require('../../models/toy');
 
 module.exports = {
   index,
+  create,
 };
 
 async function index(req, res) {
@@ -14,3 +15,10 @@ async function index(req, res) {
         res.status(500).json(err)
     }
 } 
+
+async function create(req, res) {
+    req.body.user = req.user._id;
+    console.log(req.body)
+    const donation = await Toy.create(req.body);
+    res.json(donation);
+  }

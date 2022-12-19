@@ -15,7 +15,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/donates">Donate</Link>
       &nbsp; | &nbsp;
-      <Link to="/comments">Comments</Link>
+      <Link to="/posts">Posts</Link>
       &nbsp; | &nbsp;
       <Link to="/cart">Pick Up 🛒</Link>
       &nbsp;&nbsp;

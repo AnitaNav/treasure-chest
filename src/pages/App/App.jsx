@@ -1,23 +1,24 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import CartPage from '../CartPage/CartPage';
 import DonatePage from '../DonatePage/DonatePage';
-import CommentsPage from '../CommentsPage/CommentsPage';
+import PostPage from '../PostsPage/PostPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import * as toysAPI from '../../utilities/toys-api';
-import * as CommentsAPI from '../../utilities/comments-api';
+import * as PostsAPI from '../../utilities/posts-api';
 import * as donationAPI from '../../utilities/donations-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [toys, setToys] = useState([]);
   const [cart, setCart] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [donations, setDonations] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(function () {
     async function getToys() {
@@ -53,14 +54,16 @@ export default function App() {
     setCart(updatedCart);
   }
 
-  async function handleNewComment(comment) {
-    const newComment = await CommentsAPI.addComment(comment);
-    setComments([...comments,newComment]);
+  async function handleNewPost(evt, newPostData) {
+    const newPost = await PostsAPI.addPost(newPostData);
+    setPosts([...posts,newPost]);
   }
 
-  async function addDonation() {
-    // const newDonation = await donationAPI.create(donations)
-    // setDonations([...donations, newDonation]);
+  async function addDonation(evt, newDonationData) {
+    evt.preventDefault();
+    const newDonation = await donationAPI.createDonation(newDonationData)
+    setDonations([...donations, newDonation]);
+    navigate('/');
   }
 
   return (
@@ -72,7 +75,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} removeItemtoCart={removeItemtoCart}/>} />
               <Route path="/donates" element={<DonatePage addDonation={addDonation}/>} />
-              <Route path="/comments" element={<CommentsPage handleNewComment={handleNewComment}/>} />
+              <Route path="/posts" element={<PostPage handleNewPost={handleNewPost}/>} />
               <Route path="/" element={<HomePage toys={ toys } setToys={ setToys } addItemtoCart={addItemtoCart}/>} />
             </Routes>
           </>
