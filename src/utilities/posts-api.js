@@ -9,6 +9,10 @@ export async function getAllPosts() {
   return sendRequest(BASE_URL);
 }
 
+export async function updatePost(id, postFormData) {
+  return sendRequest(`${BASE_URL}/update/${id}`, "PUT", postFormData);
+}
+
 export async function deletePosts(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import PostCard from '../../components/PostCard/PostCard';
 import * as postsAPI from '../../utilities/posts-api';
 
-export default function PostPage({ posts, handleNewPost, setPosts, handleDeletePost }) {
+export default function PostPage({ posts, handleNewPost, setPosts, handleDeletePost, handleUpdatePost }) {
     useEffect(function () {
         async function getPosts() {
           console.log('getallposts')
@@ -14,7 +14,7 @@ export default function PostPage({ posts, handleNewPost, setPosts, handleDeleteP
         getPosts();
       }, []);
     
-    const postList = posts && posts.map((p, idx) => <PostCard post={p} handleDeletePost={handleDeletePost}/> ) 
+    const postList = posts && posts.map((p, idx) => <PostCard post={p} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost}/> ) 
     
 
     return (

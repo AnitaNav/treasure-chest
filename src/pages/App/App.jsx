@@ -69,6 +69,12 @@ export default function App() {
     setPosts(existingPost);
   } 
 
+  async function handleUpdatePost(postFormData, id) {
+    const handleUpdatedPosts = await postsAPI.updatePost(id, postFormData);
+    const posts = await postsAPI.updatePost();
+    setPosts(posts);
+    navigate('/');
+  }
 
   async function addDonation(evt, newDonationData) {
     evt.preventDefault();
@@ -86,7 +92,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} removeItemtoCart={removeItemtoCart}/>} />
               <Route path="/donates" element={<DonatePage addDonation={addDonation}/>} />
-              <Route path="/posts" element={<PostPage handleNewPost={handleNewPost} posts={posts} setPosts={setPosts} handleDeletePost={handleDeletePost}/>} />
+              <Route path="/posts" element={<PostPage handleNewPost={handleNewPost} posts={posts} setPosts={setPosts} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost}/>} />
               <Route path="/" element={<HomePage toys={ toys } setToys={ setToys } addItemtoCart={addItemtoCart}/>} />
             </Routes>
           </>
