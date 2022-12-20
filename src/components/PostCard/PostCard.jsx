@@ -7,6 +7,7 @@ export default function PostCard({ post, handleDeletePost, handleUpdatePost }) {
     const comp = <textarea name="text" value={updatedText} id="" cols="5" rows="5"></textarea>;
 
     function handleEditPost(evt) {
+        evt.preventDefault();
         const editPost = {...editable,[evt.target.name]: evt.target.value}
         setEditable(editPost);   
     }
@@ -18,14 +19,14 @@ export default function PostCard({ post, handleDeletePost, handleUpdatePost }) {
                     (<><div>{post.text}</div>
                     </>) : (comp)}</>
             <>
-                <button onClick={() => {
-                    setEditable(true);
-                    handleUpdatePost(post, post._id);
-                }}>Update</button>
                 <button onSubmit={() => {
                     setEditable(false);
                     handleEditPost (post._id);
                 }}>Edit</button>
+                <button onClick={() => {
+                    setEditable(true);
+                    handleUpdatePost(post, post._id);
+                }}>Update</button>
                 <button onClick={() => handleDeletePost(post._id)}>Delete</button>
             </>
         </>
