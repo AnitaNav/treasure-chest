@@ -70,7 +70,7 @@ export default function App() {
   } 
 
   async function handleUpdatePost(postFormData, id) {
-    await postsAPI.updatePost(id, postFormData);
+    const updatePost = await postsAPI.updatePost(postFormData, id);
     const posts = await postsAPI.getAllPosts();
     setPosts(posts);
     navigate('/posts');

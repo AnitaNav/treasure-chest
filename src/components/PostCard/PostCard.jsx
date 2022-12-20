@@ -1,31 +1,36 @@
 import { useState } from 'react';
+import * as postsAPI from '../../utilities/posts-api';
 
 
-export default function PostCard({ post, handleDeletePost, handleUpdatePost }) {
+export default function PostCard({ post, handleDeletePost, handleUpdatePost, setPosts }) {
     const [editable, setEditable] = useState(false);
-    const [updatedText, setUpdatedText] = useState(post.text);
-    const comp = <textarea name="text" value={updatedText} id="" cols="5" rows="5"></textarea>;
+    const [updatedText, setUpdatedText] = useState(post);
+    const comp = <textarea onChange={handleEditPost} name="text" value={updatedText.text} id="" cols="5" rows="5">{post.text}</textarea>;
 
     function handleEditPost(evt) {
+        // evt.preventDefault();
+        const editPost = {...updatedText,[evt.target.name]: evt.target.value}
+        setUpdatedText(editPost);   
+    }
+
+     function handleUpdate(evt) {
         evt.preventDefault();
-        const editPost = {...editable,[evt.target.name]: evt.target.value}
-        setEditable(editPost);   
+        handleUpdatePost(updatedText, post._id);
     }
 
     return (
         <>
             <>
-                {(!editable) ?
+                {!editable ?
                     (<><div>{post.text}</div>
                     </>) : (comp)}</>
             <>
-                <button onSubmit={() => {
+                <button onClick={(evt) => {
                     setEditable(false);
-                    handleEditPost (post._id);
-                }}>Edit</button>
-                <button onClick={() => {
+                    handleUpdate (evt);
+                }}>Submit</button>
+                <button onClick={(evt) => {
                     setEditable(true);
-                    handleUpdatePost(post, post._id);
                 }}>Update</button>
                 <button onClick={() => handleDeletePost(post._id)}>Delete</button>
             </>

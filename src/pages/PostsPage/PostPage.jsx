@@ -14,7 +14,7 @@ export default function PostPage({ posts, handleNewPost, setPosts, handleDeleteP
         getPosts();
       }, []);
     
-    const postList = posts && posts.map((p, idx) => <PostCard key={idx} post={p} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost}/> ) 
+    const postList = posts && posts.map((p, idx) => <PostCard key={idx} post={p} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost} setPosts={setPosts}/> ) 
     
 
     return (

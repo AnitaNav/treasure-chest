@@ -9,7 +9,8 @@ export async function getAllPosts() {
   return sendRequest(BASE_URL);
 }
 
-export async function updatePost(id, postFormData) {
+export async function updatePost(postFormData, id) {
+  console.log(postFormData, 'post data');
   return sendRequest(`${BASE_URL}/update/${id}`, "PUT", postFormData);
 }
 

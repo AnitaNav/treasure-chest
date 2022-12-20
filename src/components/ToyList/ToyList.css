@@ -1,13 +1,16 @@
 .Toy-container {
-    display: inline-flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: center;
+    margin-top: 20px; 
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
     background-color: #c2fbd7;
 }
 
 .Toy-name {
     color: black;
 }
+
 .Image {
     height: 15vh;
     width: 15vw;

@@ -27,7 +27,7 @@ export default function DonatePage({ addDonation }) {
           Image:
           <input type="text" name="image" value={newdonation.image} onChange={handleChange}/>
         </label>
-        <button type="submit">Donate</button>
+        <button className="button" type="submit">Donate</button>
       </form>
     </>
   );

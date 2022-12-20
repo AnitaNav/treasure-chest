@@ -20,12 +20,13 @@ async function index(req, res) {
     res.json(posts);
 }
 
-async function updatePost(req, res) {
+async function updatePost(req, res, next) {
+  console.log(req.body);
     try {
-      await Post.findByIdAndUpdate(
-        {_id: req.params.id}, req.body
+      const post = await Post.findByIdAndUpdate(
+        {_id: req.params.id, user: req.user._id}, req.body, {new : true}
         )
-      const post = await Post.find({user: req.user._id})
+        console.log(post, "check");
       res.json(post);
     } catch (err) { 
       return next(err);
