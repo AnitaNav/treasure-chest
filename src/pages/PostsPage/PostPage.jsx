@@ -6,15 +6,15 @@ import * as postsAPI from '../../utilities/posts-api';
 export default function PostPage({ posts, handleNewPost, setPosts, handleDeletePost, handleUpdatePost }) {
     useEffect(function () {
         async function getPosts() {
-          console.log('getallposts')
+          // console.log('getallposts')
           let allPosts = await postsAPI.getAllPosts();
-          console.log(allPosts,'test')
+          // console.log(allPosts,'test')
           setPosts(allPosts)
         }
         getPosts();
       }, []);
     
-    const postList = posts && posts.map((p, idx) => <PostCard post={p} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost}/> ) 
+    const postList = posts && posts.map((p, idx) => <PostCard key={idx} post={p} handleDeletePost={handleDeletePost} handleUpdatePost={handleUpdatePost}/> ) 
     
 
     return (

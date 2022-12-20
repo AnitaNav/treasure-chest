@@ -70,10 +70,10 @@ export default function App() {
   } 
 
   async function handleUpdatePost(postFormData, id) {
-    const handleUpdatedPosts = await postsAPI.updatePost(id, postFormData);
-    const posts = await postsAPI.updatePost();
+    await postsAPI.updatePost(id, postFormData);
+    const posts = await postsAPI.getAllPosts();
     setPosts(posts);
-    navigate('/');
+    navigate('/posts');
   }
 
   async function addDonation(evt, newDonationData) {
