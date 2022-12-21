@@ -5,13 +5,6 @@ import './NewPostPage.css';
 export default function PostsPage({ handleNewPost }) {
     const [newPostFormData, setNewPostFormData] = useState({title:'',text: ''});
 
-    // function handleSubmit(evt) {
-    //     evt.preventDefault();
-    //     handleNewPost(newPostFormData);
-    //     setNewPostFormData({
-    //       text: ""
-    //     })
-    //   }
       function handleChange(evt) {
         const newPost = {...newPostFormData,[evt.target.name]: evt.target.value}
         setNewPostFormData(newPost);
@@ -21,7 +14,6 @@ export default function PostsPage({ handleNewPost }) {
       <>
         <h1>Ⓒⓞⓜⓜⓔⓝⓣⓢ</h1>
         <form onSubmit={evt => handleNewPost(evt,newPostFormData)}>
-          {/* <input onChange={handleChange}  name="title" value={newPostFormData.title} id="" cols="30" rows="10"></input> */}
           <textarea onChange={handleChange}  name="text" value={newPostFormData.text} id="" cols="30" rows="10"></textarea>
           <button className="button">Submit</button>
         </form>

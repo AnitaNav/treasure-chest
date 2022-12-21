@@ -18,7 +18,7 @@ export default function DonatePage({ addDonation }) {
   return (
     <>
       <h1>ⒹⓄⓃⒶⓉⒺ🧸</h1>
-      <form onSubmit={evt => addDonation(evt, newdonation)}>
+      <form className="Donate" onSubmit={evt => addDonation(evt, newdonation)}>
         <label>
           Name:
           <input type="text" name="name" value={newdonation.name} onChange={handleChange}/>

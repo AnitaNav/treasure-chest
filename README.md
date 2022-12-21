@@ -1,7 +1,6 @@
 # Tresure Chest
 ![This is a web application developed for a donations.](/Users/anitanaveen/code/treasure-chest/public/images/Screenshot 2022-12-21 at 10.05.07 AM.png)
-This is a web application developed for a community of gardeners to share their knowledge and exchange grow tips. The application is a database 
-for the collection of plants. The application let's you create, edit, update and delete data.
+This is a web application developed for sharing toys with others in the community. The application has a donation form to add the toys you want to share and a post page where you can show your gratitude. The application looks and feels like an ecommerce site, making it easy to access. for the collection of plants. The application let's you create, edit, update and delete data.
 # Technologies Used
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
@@ -15,3 +14,9 @@ for the collection of plants. The application let's you create, edit, update and
 # To view
 [Web Link](https://treasure-chest.herokuapp.com/) |
 [Trello](https://trello.com/b/GNC670tB/treasure-chest)
+
+# Next Steps
+* Include more items for donation and categorize them.
+* Include a search bar.
+* Include an about page.
+* Apply CRUD to all components.

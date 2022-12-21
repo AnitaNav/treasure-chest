@@ -1,3 +1,10 @@
+.Post-form {
+    background-color: beige;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+}
 .button {
     height: 30px;
     width: 90px;
@@ -24,9 +31,7 @@
     transform: scale(1.05) rotate(-1deg);
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/* .Comments {
+    background-color: beige;
+
+}  */

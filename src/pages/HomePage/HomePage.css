@@ -1,5 +1,9 @@
 .container-toys {
-    box-sizing: border-box;
-    display: inline-block;
-    gap: 5vmin;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
 }

@@ -1,18 +1,22 @@
 .Toy-container {
     margin-top: 5%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: beige; 
+    height: 25vh;
+    width: 25vw;
+    border: 3px solid black;
+    border-radius: 30px;
+
 }
 
 .Toy-name {
-    display: flex;
-    flex-wrap: wrap;
     color: black;
 }
 
 .Image {
-    display: flex;
-    flex-wrap: wrap;
     height: 15vh;
     width: 15vw;
 }

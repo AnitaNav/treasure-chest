@@ -2,6 +2,7 @@ import NewPostPage from '../../components/NewPostForm/NewPostPage';
 import { useEffect } from 'react';
 import PostCard from '../../components/PostCard/PostCard';
 import * as postsAPI from '../../utilities/posts-api';
+import './PostPage.css';
 
 export default function PostPage({ posts, handleNewPost, setPosts, handleDeletePost, handleUpdatePost }) {
     useEffect(function () {
@@ -20,7 +21,7 @@ export default function PostPage({ posts, handleNewPost, setPosts, handleDeleteP
     return (
         <>
             <NewPostPage handleNewPost={handleNewPost} />
-            <ul>
+            <ul className="Postings">
              {postList}
             </ul>
 
