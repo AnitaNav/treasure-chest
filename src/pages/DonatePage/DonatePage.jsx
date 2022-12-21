@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './DonatePage.css';
+import React from 'react';
 
 export default function DonatePage({ addDonation }) {
   const [newdonation, setNewDonation] = useState([{name:'',image:''}]);
@@ -10,13 +11,10 @@ export default function DonatePage({ addDonation }) {
     console.log('name',newdonation.name)
   }
 
-  // function submitDonation(evt) {
-  //   evt.preventDefault();
-  //   addDonation(donate);
-  //   setDonate([]);
-  // }
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
-// console.log('donate',donate);
   return (
     <>
       <h1>ⒹⓄⓃⒶⓉⒺ🧸</h1>
@@ -27,7 +25,7 @@ export default function DonatePage({ addDonation }) {
           Image:
           <input type="text" name="image" value={newdonation.image} onChange={handleChange}/>
         </label>
-        <button className="button" type="submit">Donate</button>
+        <button className="button" onClick={refreshPage} type="submit">Donate</button>
       </form>
     </>
   );
