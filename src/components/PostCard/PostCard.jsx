@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as postsAPI from '../../utilities/posts-api';
 import './PostCard.css';
 
 
@@ -9,7 +8,6 @@ export default function PostCard({ post, handleDeletePost, handleUpdatePost, set
     const comp = <textarea onChange={handleEditPost} name="text" value={updatedText.text} id="" cols="15" rows="5">{post.text}</textarea>;
 
     function handleEditPost(evt) {
-        // evt.preventDefault();
         const editPost = { ...updatedText, [evt.target.name]: evt.target.value }
         setUpdatedText(editPost);
     }
@@ -23,16 +21,16 @@ export default function PostCard({ post, handleDeletePost, handleUpdatePost, set
         <div className="Comments">
             <>
                 {!editable ?
-                    (<><div className="Post-form">{post.text}</div>
+                    (<><div className="Post-form">{post.text} {new Date(post.updatedAt).toLocaleDateString()} {post.userName}</div>
                     </>) : (comp)}</>
             <>
+                <button className="button" onClick={(evt) => {
+                    setEditable(true);
+                }}>Update</button>
                 <button className="button" onClick={(evt) => {
                     setEditable(false);
                     handleUpdate(evt);
                 }}>Submit</button>
-                <button className="button" onClick={(evt) => {
-                    setEditable(true);
-                }}>Update</button>
                 <button className="button" onClick={() => handleDeletePost(post._id)}>Delete</button>
             </>
         </div>
