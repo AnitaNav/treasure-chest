@@ -22,9 +22,7 @@ export default function App() {
 
   useEffect(function () {
     async function getToys() {
-      console.log('getalltoys')
       let allToys = await toysAPI.getAll();
-      console.log(allToys,'All toys')
       setToys(allToys)
     }
     getToys();
